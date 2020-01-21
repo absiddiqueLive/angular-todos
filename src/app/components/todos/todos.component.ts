@@ -19,6 +19,14 @@ export class TodosComponent implements OnInit {
     });
   }
 
+  // Handel adding Todo
+  addTodo(todo: Todo) {
+    this.todoService.addTodo(todo).subscribe(todo => {
+      this.todos.push(todo);
+    });
+  }
+
+  // Handel deleting Todo
   deleteTodo(todo: Todo) {
     this.todos = this.todos.filter(currentTodo => currentTodo.id !== todo.id);
     this.todoService.deteleTodo(todo).subscribe();
